@@ -2,7 +2,7 @@
 <div *ngIf="form.get('name')?.errors?.['required'] && formSubmitted">Name is required</div>
 
 
-<form [formGroup]="form" (ngSubmit)="sendData()" [style.background-color]="this.form.value['color']">
+<form [formGroup]="form" (ngSubmit)="sendData()">
     <div>
         <label for="thename">Name</label>
         <input type="text" id="thename" formControlName="name">
@@ -15,11 +15,20 @@
         <label for="theusername">Username</label>
         <input type="text" id="theusername" formControlName="username">
     </div>
-    <div>
-        <label for="thefavoritecolor">Username</label>
-        <input type="color" id="thefavoritecolor" formControlName="color">
-    </div>
     <button>Send data</button>
+
+    <fieldset formGroupName="address">
+        <legend>Address</legend>
+        <div>
+            <label for="theaddressname">Name</label>
+            <input type="text" id="theaddressname" formControlName="name">
+        </div>
+        <div>
+            <label for="theaddressstreet">Street</label>
+            <input type="text" id="theaddressstreet" formControlName="streetname">
+        </div>
+        
+    </fieldset>
 </form>
 
 <pre [hidden]="form.invalid">
@@ -29,3 +38,29 @@
 {{count}}
 
 <button type="button" (click)="count = count + 1">+1</button>
+
+
+
+<!--
+
+    ProductAdd
+    1/ Supplier service + Product service.
+    2/ Create the ProductAdd Component
+    a/ Retrieve all suppliers and display them in a select
+    b/ Define the form formGroup
+    ex of value of the group
+    {
+        name: '',
+        desc: '',
+        ...,
+        supplier: {
+            id: ''
+        }
+    }
+    
+    c/binding the data from the html form to the FormGroup
+    formControlName, formGroupName
+    
+    ProductList
+    Diplay all the product in a list
+-->

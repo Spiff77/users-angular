@@ -22,7 +22,12 @@ export class AddUserReactiveComponent implements OnInit{
       name: ['Thomas', Validators.required],
       username: '',
       email: '',
-      color: '',
+      address: this.fb.group({
+        name: '',
+        streetname: '',
+        streetnumber: ''
+      })
+
     })
   }
 
