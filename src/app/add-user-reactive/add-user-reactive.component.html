@@ -7,10 +7,7 @@
         <label for="thename">Name</label>
         <input type="text" id="thename" formControlName="name">
     </div>
-    <div>
-        <label for="theemail">Email</label>
-        <input type="text" id="theemail" formControlName="email">    
-    </div>
+
     <div>
         <label for="theusername">Username</label>
         <input type="text" id="theusername" formControlName="username">
@@ -26,8 +23,17 @@
         <div>
             <label for="theaddressstreet">Street</label>
             <input type="text" id="theaddressstreet" formControlName="streetname">
+        </div>       
+    </fieldset>
+
+    <fieldset formArrayName="emails">
+        <legend>Emails</legend>
+        <div *ngFor="let c of getarray('emails').controls; let i=index">
+            <label [for]="'theemail'+i">Email</label>
+            <input type="text" [id]="'theemail'+i" [formControlName]="i">
+            <span (click)="removeEmail(i)">[X]</span>
         </div>
-        
+        <button type="button" (click)="addEmail()">Add Email</button>
     </fieldset>
 </form>
 

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { UsersService } from '../users.service';
 import { User } from '../model/user.model';
 import { Router } from '@angular/router';
@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 })
 export class AddUserReactiveComponent implements OnInit{
 
+
   formSubmitted = false;
   form!: FormGroup
   count = 0;
@@ -21,13 +22,12 @@ export class AddUserReactiveComponent implements OnInit{
     this.form = this.fb.group({
       name: ['Thomas', Validators.required],
       username: '',
-      email: '',
+      emails: this.fb.array(['sdfs@sdffs', 'fsmfldskf.com']),
       address: this.fb.group({
         name: '',
         streetname: '',
         streetnumber: ''
       })
-
     })
   }
 
@@ -37,5 +37,17 @@ export class AddUserReactiveComponent implements OnInit{
       this.userService.addOne(this.form.value)
         .subscribe(() => this.router.navigateByUrl("/users"))
     }
+  }
+
+  getarray(formControlName: string): FormArray {
+    return (this.form.get(formControlName) as FormArray)
+  }
+
+  addEmail(){
+    this.getarray('emails').push(this.fb.control(''))
+  }
+
+  removeEmail(index: number){
+    this.getarray('emails').removeAt(index)
   }
 }
