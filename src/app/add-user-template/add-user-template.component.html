@@ -1,0 +1,24 @@
+<h1>Add user (Template)</h1>
+
+<div *ngIf="thename?.errors?.['required']  && formSubmitted">Name is required</div>
+
+<form #form="ngForm" (ngSubmit)="sendData(form.valid)">
+    <div>
+        <label for="thename">Name</label>
+        <input type="text" [(ngModel)]="this.user.name" name="thename" id="thename" #thename="ngModel"  required>
+    </div>
+    <div>
+        <label for="theemail">Email</label>
+        <input type="text" [(ngModel)]="this.user.username" name="theemail" id="theemail">
+    </div>
+    <div>
+        <label for="theusername">Username</label>
+        <input type="text" [(ngModel)]="this.user.email" name="theusername" id="theusername">
+    </div>
+    <button>Send data</button>
+</form>
+
+
+<pre>
+    {{user | json}}
+</pre>

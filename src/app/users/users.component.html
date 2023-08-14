@@ -1,0 +1,4 @@
+<h1>User list</h1>
+<ul>
+    <li [routerLink]="['/users', i]" *ngFor="let u of users; let i=index">{{i + 1}} - {{u.name}}</li>
+</ul>

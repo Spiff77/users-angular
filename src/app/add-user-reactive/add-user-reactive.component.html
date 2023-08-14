@@ -1,0 +1,31 @@
+
+<div *ngIf="form.get('name')?.errors?.['required'] && formSubmitted">Name is required</div>
+
+
+<form [formGroup]="form" (ngSubmit)="sendData()" [style.background-color]="this.form.value['color']">
+    <div>
+        <label for="thename">Name</label>
+        <input type="text" id="thename" formControlName="name">
+    </div>
+    <div>
+        <label for="theemail">Email</label>
+        <input type="text" id="theemail" formControlName="email">    
+    </div>
+    <div>
+        <label for="theusername">Username</label>
+        <input type="text" id="theusername" formControlName="username">
+    </div>
+    <div>
+        <label for="thefavoritecolor">Username</label>
+        <input type="color" id="thefavoritecolor" formControlName="color">
+    </div>
+    <button>Send data</button>
+</form>
+
+<pre [hidden]="form.invalid">
+    {{form.value | json}}
+</pre>
+
+{{count}}
+
+<button type="button" (click)="count = count + 1">+1</button>

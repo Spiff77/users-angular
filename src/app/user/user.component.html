@@ -1,0 +1,10 @@
+<div *ngIf="user">
+    <h1>Detail for user {{user.name}}</h1>
+    <ul>
+        <li>{{user.email}}</li>
+        <li>{{user.name}}</li>
+        <li>{{user.username}}</li>
+    </ul>
+</div>
+    
+<a routerLink="/users"> return to list</a>
