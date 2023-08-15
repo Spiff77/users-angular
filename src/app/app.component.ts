@@ -21,12 +21,8 @@ export class AppComponent {
 
 
 /*
-  product-dashboard
-    with 
-      <app-products></app-products>
-      <app-add-products></app-add-products>
-
-  using notification-service to communicate between the two components
-
-
+  ProductList ---> 
+    ngFor on ProductCard 
+      use the :host for cool css
+      use the @HostListener for redirection to detail
 */

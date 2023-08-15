@@ -1,5 +1,7 @@
-li{
-    color:blue;
-    cursor: pointer;
-    text-decoration: underline;
+div{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+
+    border: 1px solid #000;
 }

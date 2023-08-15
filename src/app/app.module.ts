@@ -16,6 +16,7 @@ import { AddUserTemplateComponent } from './add-user-template/add-user-template.
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ColorComponent } from './color/color.component';
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
+import { UserCardComponent } from './user-card/user-card.component';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { UserDashboardComponent } from './user-dashboard/user-dashboard.componen
     AddUserReactiveComponent,
     AddUserTemplateComponent,
     ColorComponent,
-    UserDashboardComponent
+    UserDashboardComponent,
+    UserCardComponent
     ],
   imports: [
     BrowserModule,
