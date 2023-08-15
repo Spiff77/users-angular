@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { UsersService } from '../users.service';
 import { User } from '../model/user.model';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { NotificationService } from '../notification.service';
 
 @Component({
   selector: 'app-add-user-reactive',
@@ -15,27 +16,43 @@ export class AddUserReactiveComponent implements OnInit{
   formSubmitted = false;
   form!: FormGroup
   count = 0;
-  
-  constructor(private fb: FormBuilder, private userService: UsersService, private router: Router){}
+  currentroute = ''
+  constructor(
+      private fb: FormBuilder,
+      private userService: UsersService, 
+      private router: Router,
+      private activatedRoute: ActivatedRoute,
+      private ns: NotificationService
+      ){}
 
   ngOnInit(): void {
     this.form = this.fb.group({
       name: ['Thomas', Validators.required],
       username: '',
-      emails: this.fb.array(['sdfs@sdffs', 'fsmfldskf.com']),
+      emails: this.fb.array([
+        this.fb.group({name: '', email: ''}),
+      ]),
       address: this.fb.group({
         name: '',
         streetname: '',
         streetnumber: ''
       })
     })
+    this.currentroute = this.activatedRoute.snapshot.url[0].path;
+    
   }
 
   sendData() {
     this.formSubmitted = true
     if(this.form.valid){
       this.userService.addOne(this.form.value)
-        .subscribe(() => this.router.navigateByUrl("/users"))
+        .subscribe(() => {
+          if(this.currentroute == 'user-dashboard')
+            this.ns.sendMesage()
+          else
+            this.router.navigateByUrl("/users")
+        })
+        
     }
   }
 
@@ -44,7 +61,7 @@ export class AddUserReactiveComponent implements OnInit{
   }
 
   addEmail(){
-    this.getarray('emails').push(this.fb.control(''))
+    this.getarray('emails').push(this.fb.group({name: '', email: ''}))
   }
 
   removeEmail(index: number){

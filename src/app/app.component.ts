@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Car } from './model/car.model';
 import { Person } from './model/person.model';
-import { Subscription, filter, interval, map } from 'rxjs';
+import { Subject, Subscription, filter, interval, map } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -15,7 +15,6 @@ export class AppComponent {
 
 
   constructor(){
-
   }
 
   closeInterval(){

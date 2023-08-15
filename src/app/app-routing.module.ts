@@ -10,11 +10,13 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { UserComponent } from './user/user.component';
 import { AddUserReactiveComponent } from './add-user-reactive/add-user-reactive.component';
 import { AddUserTemplateComponent } from './add-user-template/add-user-template.component';
+import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
 
 
 const routes: Route[] = [
   {path:'suv', component: SuvCarComponent},
   {path:'general', component: GeneralCarComponent},
+  {path:'user-dashboard', component: UserDashboardComponent},
   {path:'users/add/reactive', component: AddUserReactiveComponent},
   {path:'users/add/template', component: AddUserTemplateComponent},
   {path:'users', component: UsersComponent},

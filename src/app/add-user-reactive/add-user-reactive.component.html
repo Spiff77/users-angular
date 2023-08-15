@@ -12,7 +12,6 @@
         <label for="theusername">Username</label>
         <input type="text" id="theusername" formControlName="username">
     </div>
-    <button>Send data</button>
 
     <fieldset formGroupName="address">
         <legend>Address</legend>
@@ -25,27 +24,24 @@
             <input type="text" id="theaddressstreet" formControlName="streetname">
         </div>       
     </fieldset>
-
     <fieldset formArrayName="emails">
         <legend>Emails</legend>
-        <div *ngFor="let c of getarray('emails').controls; let i=index">
-            <label [for]="'theemail'+i">Email</label>
-            <input type="text" [id]="'theemail'+i" [formControlName]="i">
+        <div *ngFor="let c of getarray('emails').controls; let i=index" [formGroupName]="i">
+                <div>
+                    <label [for]="'theemaillabel'+i">Label {{i + 1}}</label>
+                    <input type="text" [id]="'theemaillabel'+i" formControlName="name">
+                </div>
+                <div>
+                    <label [for]="'theemail'+i">Email {{i + 1}}</label>
+                    <input type="text" [id]="'theemail'+i" formControlName="email">
+                </div>
             <span (click)="removeEmail(i)">[X]</span>
-        </div>
-        <button type="button" (click)="addEmail()">Add Email</button>
+        </div> 
+        <button type="button" (click)="addEmail()">Add email</button> 
     </fieldset>
+    <button>OK data</button>
+
 </form>
-
-<pre [hidden]="form.invalid">
-    {{form.value | json}}
-</pre>
-
-{{count}}
-
-<button type="button" (click)="count = count + 1">+1</button>
-
-
 
 <!--
 
