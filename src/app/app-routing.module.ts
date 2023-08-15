@@ -15,7 +15,7 @@ import { StaticUsersComponent } from './static-users/static-users.component';
 import { FavAnimalFormComponent } from './fav-animal-form/fav-animal-form.component';
 
 
-const routes: Route[] = [
+export const routes: Route[] = [
   {path:'suv', component: SuvCarComponent},
   {path:'general', component: GeneralCarComponent},
   {path:'static-users', component: StaticUsersComponent},
