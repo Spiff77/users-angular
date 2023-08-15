@@ -17,7 +17,16 @@ export class AppComponent {
   constructor(){
   }
 
-  closeInterval(){
-  }
-
 }
+
+
+/*
+  product-dashboard
+    with 
+      <app-products></app-products>
+      <app-add-products></app-add-products>
+
+  using notification-service to communicate between the two components
+
+
+*/
