@@ -17,7 +17,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ColorComponent } from './color/color.component';
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
 import { UserCardComponent } from './user-card/user-card.component';
-
+import { StaticUsersComponent } from './static-users/static-users.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatButtonModule} from '@angular/material/button'; 
+import {MatCardModule} from '@angular/material/card'; 
 
 @NgModule({
   declarations: [
@@ -33,15 +36,19 @@ import { UserCardComponent } from './user-card/user-card.component';
     AddUserTemplateComponent,
     ColorComponent,
     UserDashboardComponent,
-    UserCardComponent
+    UserCardComponent,
+    StaticUsersComponent
     ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
-  ],
+    ReactiveFormsModule,
+    MatCardModule,
+    BrowserAnimationsModule,
+    MatButtonModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

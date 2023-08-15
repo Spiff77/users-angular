@@ -11,11 +11,13 @@ import { UserComponent } from './user/user.component';
 import { AddUserReactiveComponent } from './add-user-reactive/add-user-reactive.component';
 import { AddUserTemplateComponent } from './add-user-template/add-user-template.component';
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
+import { StaticUsersComponent } from './static-users/static-users.component';
 
 
 const routes: Route[] = [
   {path:'suv', component: SuvCarComponent},
   {path:'general', component: GeneralCarComponent},
+  {path:'static-users', component: StaticUsersComponent},
   {path:'user-dashboard', component: UserDashboardComponent},
   {path:'users/add/reactive', component: AddUserReactiveComponent},
   {path:'users/add/template', component: AddUserTemplateComponent},
