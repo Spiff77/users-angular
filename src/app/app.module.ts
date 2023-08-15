@@ -20,7 +20,10 @@ import { UserCardComponent } from './user-card/user-card.component';
 import { StaticUsersComponent } from './static-users/static-users.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatButtonModule} from '@angular/material/button'; 
-import {MatCardModule} from '@angular/material/card'; 
+import {MatCardModule} from '@angular/material/card';
+import { FavAnimalFormComponent } from './fav-animal-form/fav-animal-form.component';
+import { AnimalFavDialogComponent } from './animal-fav-dialog/animal-fav-dialog.component';
+import {MatDialogModule} from '@angular/material/dialog'; 
 
 @NgModule({
   declarations: [
@@ -37,7 +40,9 @@ import {MatCardModule} from '@angular/material/card';
     ColorComponent,
     UserDashboardComponent,
     UserCardComponent,
-    StaticUsersComponent
+    StaticUsersComponent,
+    FavAnimalFormComponent,
+    AnimalFavDialogComponent
     ],
   imports: [
     BrowserModule,
@@ -47,7 +52,8 @@ import {MatCardModule} from '@angular/material/card';
     ReactiveFormsModule,
     MatCardModule,
     BrowserAnimationsModule,
-    MatButtonModule
+    MatButtonModule,
+    MatDialogModule
     ],
   providers: [],
   bootstrap: [AppComponent]

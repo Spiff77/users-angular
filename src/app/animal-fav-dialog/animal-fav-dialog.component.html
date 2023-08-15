@@ -1,0 +1,8 @@
+<h2  mat-dialog-title>Hey {{name}}</h2>
+<mat-dialog-content>
+    What is your favorite animal?
+    <input type="text" [(ngModel)]="favAnimal" placeholder="ex: Ostrich">    
+    <button mat-button type="button" mat-dialog-close>Cancel</button>
+    <button mat-button type="button" (click)="sendData()">OK</button>
+
+</mat-dialog-content>
